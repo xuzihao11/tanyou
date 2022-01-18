@@ -12,22 +12,21 @@ class login
     {
     }
     public function index(){
-        echo  Session::get('User_name');
 
-        if (Session::has('User_name')){
+        if (Session::has('cUID')){
             return "您已经登陆了哦";
         }
         $cUser_name = (request()->param('User_name'));
         $cPwd       = (request()->param('Pwd'));
 
-        Session::set('User_name', $cUser_name);
-        Session::set('Pwd', $cPwd);
-
         $query = consumer_info::where(['cUser_name'=>$cUser_name,'cPwd'=>$cPwd])
-            ->find();
+            ->column('cUID');
+
         if(empty($query)){
             return "您输入的用户名或密码错误!";
         }
+        Session::set('User_name', $cUser_name);
+        Session::set('cUID', $query[0]);
 
         return "登录成功！";
 

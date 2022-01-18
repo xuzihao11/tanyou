@@ -174,7 +174,7 @@
                 })
         })()
     });
-    $('#login_list').click(function(){
+    $('#login_submit').click(function(){
         var username = $('#username').val();
         var pwd      = $('#password').val();
         var user_feedback = $('#login_username_feedback');
@@ -189,7 +189,7 @@
         var patrn = /^[a-z0-9_-]{3,16}$/;//正则表达式
         if(!username.match(patrn) ){
             user_feedback.html("请检查用户名！");
-            $('#username').removeClass("is-valid")
+            $('#username').removeClass("is-valid");
             $('#username').addClass(" is-invalid");
             return false;
         }
