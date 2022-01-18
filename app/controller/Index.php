@@ -6,7 +6,7 @@ use think\facade\View;
 use think\Request;
 use app\BaseController;
 
-class Index extends BaseController
+class Index
 {
 
     public function index()
