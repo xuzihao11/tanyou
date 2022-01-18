@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <script src="__JQ-VA__/jquery.validate.min.js"></script>
+    <script src="__STATIC__/jquery-3.5.1.js" ></script>
+    <script src="__BOOT-JS__/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="__BOOT-CSS__/bootstrap.min.css">
+    <link rel="stylesheet" href="__CSS__/login.css">
+</head>
+
+<body>
+<div class="wrap">
+    <div class="input ">
+        <form action="/Login/index" method="post" class="needs-validation" id="login_list" novalidate>
+            <div class="logo1"><h1>欢&nbsp;迎!&nbsp;摊&nbsp;友</h1></div>
+            <!--            <div class="logo1"><img src="__IMGS__/logo1.jpg" alt=""></div>-->
+            <div class="input-group mb-3" id="u">
+                <span class="input-group-text" id="basic-addon1">用户名:</span>
+                <input type="text" class="form-control " name="User_name"
+                       id="username" placeholder="Username" data-toggle="tooltip"
+                       title="20位以内英文,数字组合" aria-label="Username" aria-describedby="basic-addon1" required>
+                <div class="invalid-feedback" id="login_username_feedback">
+                    请输入用户名
+                </div>
+            </div>
+
+            <div class="input-group mb-3" id="p">
+                <span class="input-group-text"  id="basic-addon2">密&nbsp;&nbsp;&nbsp;码:</span>
+                <input  required type="password" class="form-control" data-toggle="tooltip"
+                        title="不能包括/.,等方法字符"
+                        id="password" name="Pwd" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="invalid-feedback" id="login_pwd_feedback">
+                    请输入密码
+                </div>
+            </div>
+            <div class="btn-group" role="group" >
+                <button type="button" class="btn btn-secondary"
+                        id="login_submit" name="login-submit">登录</button>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button type="button" class="btn btn-secondary"
+                        id="register_submit" name="register" onclick="registration()">注册</button>
+            </div>
+        </form>
+    </div>
+    <div class="register" >
+        <div class="logo2"><img src="__IMGS__/logo1.jpg" alt=""></div>
+        <form class="needs-validation" action="/Register/register"
+              method="post" id="register_list"  novalidate>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">用户名:</span>
+                <input  required type="text" class="form-control"
+                        placeholder="Username" id="register_username"
+                        name="User_name" aria-label="register_username"
+                        maxlength="20" aria-describedby="basic-addon1">
+                <div class="invalid-feedback register_username_feedback">
+                    请输入一个由数字和字母组成的用户名!
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">密&nbsp;&nbsp;&nbsp;码:</span>
+                <input  required type="password" class="form-control"
+                        name="Pwd" id="register_password"
+                        placeholder="Password" aria-describedby="Password"
+                        maxlength="20">
+                <div class="invalid-feedback register_pwd_feedback">
+                    请输入密码!
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">姓&nbsp;&nbsp;&nbsp;名:</span>
+                <input  required type="text" class="form-control"
+                        name="cName" id="cName"
+                        placeholder="Name" aria-describedby="Name"
+                        maxlength="20">
+                <div class="invalid-feedback register_name_feedback">
+                    请输入性名!
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3">姓&nbsp;&nbsp;&nbsp;别:</span>
+                <input  required type="text" class="form-control"
+                        name="cSex" id="cSex"
+                        placeholder="Sex" aria-describedby="Sex"
+                        maxlength="20">
+                <div class="invalid-feedback register_sex_feedback">
+                    请输入性别!
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon2">邮&nbsp;&nbsp;&nbsp;箱:</span>
+                <input  required type="text" class="form-control"
+                        name="register_email" placeholder="Email"
+                        maxlength="20"  id = 'register_email'
+                        aria-label="Email" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2" >@qq.com</span>
+                <div class="invalid-feedback register_email_feedback">
+                    请输入正确的邮箱地址!
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">生&nbsp;&nbsp;&nbsp;日:</span>
+                <input  required type="text" class="form-control"
+                        name="cBirth"  id="register_age" maxlength="20"
+                        placeholder="Age" aria-label="Amount (to the nearest dollar)">
+                <div class="invalid-feedback register_age_feedback">
+                    请输入您的出生年月!
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">号&nbsp;&nbsp;&nbsp;码:</span>
+                <input  required type="text" class="form-control" name="cTel" id="cTel"
+                        placeholder="Phone" aria-label="Phone" maxlength="13">
+                <div class="invalid-feedback register_tel_feedback">
+                    请输入您的手机号码
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">头&nbsp;&nbsp;&nbsp;像:</span>
+                <input  required type="text" class="form-control" name="cPhoto" id="cPhoto"
+                        placeholder="Photo" aria-label="Photo" maxlength="13">
+                <div class="invalid-feedback register_tel_feedback">
+                    请选择您的头像
+                </div>
+            </div>
+            <div class="btn-group register_btn">
+                <button type="button" class="btn btn-success"
+                        id="register_submit" name="login-submit">注册</button>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button type="button" class="btn btn-warning"
+                        id="cancel_submit" name="cancel"  >取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript" >
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl){
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    $(document).ready(function(){
+        var num = Math.ceil(Math.random() * 1);
+        $('body').css('background-image',"url(__IMGS__/login/login0"+num+'.jpg)');
+        $('body').show(2000);
+        $('.input').fadeIn(2000);
+        $('#cancel_submit').click(
+            function cancel(){
+                window.location =  "/index.php/index";
+                return true;
+            });
+        (function () {
+            'use strict'
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('change', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    });
+    $('#login_list').click(function(){
+        var username = $('#username').val();
+        var pwd      = $('#password').val();
+        var user_feedback = $('#login_username_feedback');
+        var pwd_feedback = $('#login_pwd_feedback');
+        username     = username.trim();
+        pwd          = pwd.trim();
+        if (username.length ==0 || pwd.length == 0)
+        {
+            return false;
+        }
+
+        var patrn = /^[a-z0-9_-]{3,16}$/;//正则表达式
+        if(!username.match(patrn) ){
+            user_feedback.html("请检查用户名！");
+            $('#username').removeClass("is-valid")
+            $('#username').addClass(" is-invalid");
+            return false;
+        }
+        if( pwd.length < 4 ){
+            pwd_feedback.html("密码必须大于等于6位！");
+            $('#password').removeClass("is-valid")
+            $('#password').addClass(" is-invalid");
+            return false;
+        }
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/Login/index" ,//url
+            data: {
+                User_name : username,
+                Pwd       : pwd,
+            },
+            success: function (result) {
+            alert(result) ;
+        },
+        error : function() {
+            alert("异常！");
+        }
+        });
+        return true;
+    });
+
+    function registration()
+    {
+        $('.input').fadeOut(200);
+        $('.register').fadeIn(2000);
+    }
+
+
+</script>
+</html>
