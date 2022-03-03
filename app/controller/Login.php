@@ -19,14 +19,9 @@ class login
         $cUser_name = (request()->param('User_name'));
         $cPwd       = (request()->param('Pwd'));
 
-        if (Session::has($cUser_name)){
-            return "您已经登陆了哦";
-        }
-
         try {
-            $validate = new \app\validate\User;
-            $res  = Validate(User::class)
-                ->check(['User_name' => $cUser_name,'Pwd' => $cPwd]);
+            $validate = new \app\controller\verify\User();
+            $res  =$validate->scene('login')->check(['cUser_name' => $cUser_name,'cPwd' => $cPwd]);
             if (!$res){
                 return $validate->getError();
             }
@@ -40,7 +35,10 @@ class login
         if(empty($query)){
             return "您输入的用户名或密码错误!";
         }
-        Session::set('User_name', $cUser_name);
+        if (Session::has($cUser_name)){
+            return "您已经登陆了哦";
+        }
+        Session::set($cUser_name, $cUser_name);
         Session::set('cUID', $query[0]);
 
         return "登录成功！";

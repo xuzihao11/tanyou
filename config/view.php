@@ -28,7 +28,8 @@ return [
         '__BOOT-JS__'   =>  '/static/bootstrap-5.0.2-dist/js',
         '__JQ-VA__'     =>  '/static/jqvalidate',
         '__IMGS__'      =>  '/static/imgs',
-        '__CSS__'      =>  '/static/css',
+        '__CSS__'       =>  '/static/css',
+        '__JQ__'        =>  '/static/JQ',
     ),
     'tpl_cache'     => false,
 ];

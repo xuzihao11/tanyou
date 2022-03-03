@@ -49,13 +49,13 @@
     </div>
     <div class="register" >
         <div class="logo2"><img src="__IMGS__/logo1.jpg" alt=""></div>
-        <form class="needs-validation" action="/Register/register"
+        <form class="needs-validation" action="/Register/index"
               method="post" id="register_list"  novalidate>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">用户名:</span>
                 <input  required type="text" class="form-control"
                         placeholder="Username" id="register_username"
-                        name="User_name" aria-label="register_username"
+                        name="cUser_name" aria-label="register_username"
                         maxlength="20" aria-describedby="basic-addon1">
                 <div class="invalid-feedback register_username_feedback">
                     请输入一个由数字和字母组成的用户名!
@@ -64,7 +64,7 @@
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon3">密&nbsp;&nbsp;&nbsp;码:</span>
                 <input  required type="password" class="form-control"
-                        name="Pwd" id="register_password"
+                        name="cPwd" id="register_password"
                         placeholder="Password" aria-describedby="Password"
                         maxlength="20">
                 <div class="invalid-feedback register_pwd_feedback">
@@ -122,16 +122,16 @@
                 </div>
             </div>
             <div class="input-group mb-3">
-                <span class="input-group-text">头&nbsp;&nbsp;&nbsp;像:</span>
-                <input  required type="text" class="form-control" name="cPhoto" id="cPhoto"
-                        placeholder="Photo" aria-label="Photo" maxlength="13">
+                <span class="input-group-text">身份证号码:</span>
+                <input  type="text" class="form-control" name="cID" id="cID"
+                        placeholder="IDCARD" aria-label="IDCARD" >
                 <div class="invalid-feedback register_tel_feedback">
-                    请选择您的头像
+                    请输入正确的身份证号码
                 </div>
             </div>
             <div class="btn-group register_btn">
-                <button type="button" class="btn btn-success"
-                        id="register_submit" name="login-submit">注册</button>
+                <button type="submit" class="btn btn-success"
+                        id="register_submit" name="register-submit">注册</button>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <button type="button" class="btn btn-warning"
                         id="cancel_submit" name="cancel"  >取消</button>

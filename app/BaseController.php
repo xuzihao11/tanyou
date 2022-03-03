@@ -53,7 +53,7 @@ abstract class BaseController
     // 初始化
     protected function initialize()
     {
-        if (empty(session('cUID')) || empty(session('User_name'))) {
+        if (empty(session('cUID')) ) {
             die('请先登录');
         }
     }
